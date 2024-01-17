@@ -1,6 +1,7 @@
 asgiref==3.7.2
 autopep8==2.0.4
 Django==5.0.1
+django-environ==0.11.2
 pep8==1.7.1
 pycodestyle==2.11.1
 sqlparse==0.4.4
