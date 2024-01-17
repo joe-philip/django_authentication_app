@@ -12,3 +12,14 @@ class Countries(models.Model):
         verbose_name = 'country'
         verbose_name_plural = 'countries'
 
+
+class Nationalities(models.Model):
+    name = models.CharField(max_length=50)
+    country = models.ForeignKey(
+        Countries, on_delete=models.SET_NULL, null=True
+    )
+
+    class Meta:
+        db_table = 'nationalities'
+        verbose_name = 'Nationality'
+        verbose_name_plural = 'Nationalities'
