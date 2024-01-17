@@ -4,4 +4,5 @@ Django==5.0.1
 django-environ==0.11.2
 pep8==1.7.1
 pycodestyle==2.11.1
+pytz==2023.3.post1
 sqlparse==0.4.4
