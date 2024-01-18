@@ -28,6 +28,8 @@ class Nationalities(models.Model):
         verbose_name = 'Nationality'
         verbose_name_plural = 'Nationalities'
 
+    def __str__(self) -> str: return self.name
+
 
 class UserManager(BaseUserManager):
     def create_user(self, email, full_name, mobile, password=None, **extra_fields):
