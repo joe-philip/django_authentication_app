@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/signup.css' %}">
+{% endblock %}
+{% block title %}Signup{% endblock %}
+{% block scripts %}
+<script src="{% static 'scripts/signup.js' %}"></script>
+{% endblock %}
+{% block header_title %}Signup{% endblock %}
+{% block content %}
+<section>
+    <h2>Signup</h2>
+    <form id="signupForm" method="POST" onsubmit="return validateForm()" action="{% url 'signup' %}">
+        {% csrf_token %}
+        <label for="fullName">Full Name:</label>
+        {% if form.full_name.errors %}
+        {% for error in form.full_name.errors %}
+        <span id="fullNameError" class="error-message">{{error}}</span>
+        {% endfor %}
+        {% endif %}
+        {{form.full_name}}
+        <label for="email">Email:</label>
+        {% if form.email.errors %}
+        {% for error in form.email.errors %}
+        <span id="emailError" class="error-message">
+            {{ error }}
+        </span>
+        {% endfor %}
+        {% endif %}
+        {{form.email}}
+        <label for="mobile">Mobile:</label>
+        {% if form.mobile.errors %}
+        {% for error in form.mobile.errors %}
+        <span id="mobileError" class="error-message">{{error}}</span>
+        {% endfor %}
+        {% endif %}
+        {{form.mobile}}
+        <label for="country">Country:</label>
+        {{form.country}}
+        {{form.other_country}}
+        <span id="countryError" class="error-message"></span>
+        <label for="nationality">Nationality:</label>
+        {{form.nationality}}
+        {{form.other_nationality}}
+        <span id="nationalityError" class="error-message"></span>
+        <label for="password">Password:</label>
+        {{form.password}}
+        {{form.password.errors}}
+        <span id="passwordError" class="error-message"></span>
+        <label for="confirmPassword">Confirm Password:</label>
+        {{form.password2}}
+        {{form.password2.errors}}
+        <span id="confirmPasswordError" class="error-message"></span>
+        <input type="submit" value="Submit" />
+    </form>
+</section>
+{% endblock %}
