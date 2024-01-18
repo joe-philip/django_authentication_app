@@ -67,3 +67,8 @@ class UserRegistrationForm(forms.ModelForm):
         user.set_password(self.cleaned_data.get('password'))
         user.save()
         return user
+
+
+class LoginForm(forms.Form):
+    email = forms.EmailField()
+    password = forms.CharField(widget=forms.PasswordInput)
