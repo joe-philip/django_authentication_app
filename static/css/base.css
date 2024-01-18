@@ -42,3 +42,7 @@ footer {
 .success {
     color: rgb(27, 165, 0);
 }
+
+.error {
+    color: red;
+}
