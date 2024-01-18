@@ -14,6 +14,8 @@ class Countries(models.Model):
         verbose_name = 'country'
         verbose_name_plural = 'countries'
 
+    def __str__(self) -> str: return self.name
+
 
 class Nationalities(models.Model):
     name = models.CharField(max_length=50)
