@@ -18,10 +18,13 @@
     <nav>
         {% block nav_content %}
         <a href="/">Home</a>
-        <a href="#about">Login</a>
-        <a href="{% url 'signup' %}">Signup</a>
+        {% if user.is_authenticated %}
         <a href="#contact">Dashboard</a>
         <a href="#contact">Logout</a>
+        {% else %}
+        <a href="{% url 'login' %}">Login</a>
+        <a href="{% url 'signup' %}">Signup</a>
+        {% endif %}
         {% endblock %}
     </nav>
     {% for message in messages %}
