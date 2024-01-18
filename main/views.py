@@ -16,7 +16,7 @@ class HomeView(TemplateView):
 class UserSignupView(SuccessMessageMixin, CreateView):
     template_name = 'signup.html'
     form_class = UserRegistrationForm
-    success_url = '/'
+    success_url = '/login'
     success_message = 'Signup success login to continue'
 
 
