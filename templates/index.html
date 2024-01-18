@@ -1,13 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
+{% load static %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-</head>
+{% block title %}Home - Django Application{% endblock %}
 
-<body>
-</body>
+{% block header_title %}Welcome to the Home Page{% endblock %}
 
-</html>
+{% block content %}
+<section>
+    <h2>Welcome to Your Website!</h2>
+    <p>This is the home page content.</p>
+</section>
+{% endblock %}
