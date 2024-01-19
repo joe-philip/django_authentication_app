@@ -6,6 +6,7 @@
 {% endblock %}
 
 {% block dashboard_content %}
+{% if queryset %}
 <h1>Users</h1>
 <table border="1">
     <thead>
@@ -52,4 +53,5 @@
         </tr>
         {% endfor %}
 </table>
+{% endif %}
 {% endblock %}
