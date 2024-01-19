@@ -53,3 +53,7 @@ ul.errorList {
 footer {
     position: relative;
 }
+
+.login-link {
+    margin: 15px;
+}

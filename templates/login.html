@@ -11,7 +11,9 @@
     <form method="post" action="{% url 'login' %}">
         {% csrf_token %}
         {{form.as_p}}
-
+        <div class="signup-link">
+            Do not have an account? <a href="{% url 'signup' %}">Signup</a>
+        </div>
         <input type="submit" value="Login" />
     </form>
 </section>

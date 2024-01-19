@@ -58,6 +58,9 @@
         {% endif %}
         {{form.password2}}
         <span id="confirmPasswordError" class="error-message"></span>
+        <div class="login-link">
+            Already have an account? <a href="{% url 'login' %}">Login</a>
+        </div>
         <input type="submit" value="Submit" />
     </form>
 </section>

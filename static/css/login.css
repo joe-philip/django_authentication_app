@@ -44,3 +44,7 @@ button {
 button:hover {
     background-color: #555;
 }
+
+.signup-link {
+    margin: 15px;
+}
