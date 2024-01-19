@@ -1,9 +1,10 @@
 from django.contrib import messages
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.messages.views import SuccessMessageMixin
-from django.http import HttpResponse
+from django.http.request import HttpRequest
+from django.http.response import HttpResponse
 from django.shortcuts import redirect
-from django.views.generic import CreateView, FormView, TemplateView
+from django.views.generic import CreateView, FormView, TemplateView, View
 
 from .forms import LoginForm, UserRegistrationForm
 
@@ -34,3 +35,9 @@ class LoginView(FormView):
             message='Login failed, Invalid credentials'
         )
         return redirect('/login')
+
+
+class LogoutView(View):
+    def get(self, request: HttpRequest) -> HttpResponse:
+        logout(request)
+        return redirect('/')
