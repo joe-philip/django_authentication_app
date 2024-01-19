@@ -50,6 +50,7 @@ class UserManager(BaseUserManager):
         Create and return a superuser with an email, password, and admin privileges.
         """
         extra_fields.setdefault('role', 3)
+        extra_fields.setdefault('is_superuser', True)
         return self.create_user(email, full_name, mobile, password, **extra_fields)
 
 
