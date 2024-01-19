@@ -3,6 +3,7 @@
 {% block header_title %}Welcome {{user.full_name.capitalize}}{% endblock %}
 {% block styles %}
 <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+{% block dashboard_styles %}{% endblock %}
 {% endblock %}
 {% block content %}
 <div>
@@ -20,6 +21,20 @@
             Admin
             {% elif user.role == 4 %}
             Editor
+            {% endif %}
+        </li>
+        <li>Country:
+            {% if user.country.id != 1 %}
+            {{user.country}}
+            {% else %}
+            {{user.other_country}}
+            {% endif %}
+        </li>
+        <li>Nationality:
+            {% if user.nationality.id != 1 %}
+            {{user.nationality}}
+            {% else %}
+            {{user.other_nationality}}
             {% endif %}
         </li>
     </ul>
