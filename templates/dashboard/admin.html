@@ -1,0 +1,39 @@
+{% extends "dashboard.html" %}
+{% load static %}
+{% block title %}Admin dashboard{% endblock %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/dashboard/admin.css' %}">
+{% endblock %}
+
+{% block dashboard_content %}
+<h1>Users</h1>
+<table border="1">
+    <thead>
+        <th>Sl.No</th>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Mobile</th>
+        <th>Role</th>
+    </thead>
+    <tbody>
+        {% for user in queryset %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{user.id}}</td>
+            <td>{{user.full_name}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.mobile}}</td>
+            <td>
+                {% if user.role == 1 %}
+                Student
+                {% elif user.role == 2 %}
+                Staff
+                {% elif user.role == 4 %}
+                Editor
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+</table>
+{% endblock %}
