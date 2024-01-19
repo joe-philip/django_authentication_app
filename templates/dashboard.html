@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+{% block header_title %}Welcome {{user.full_name.capitalize}}{% endblock %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+{% endblock %}
+{% block content %}
+<div>
+    Profile:
+    <ul class="profile">
+        <li>Name: {{user.full_name}}</li>
+        <li>Email: {{user.email}}</li>
+        <li>Mobile: {{user.mobile}}</li>
+        <li>Role:
+            {% if user.role == 1 %}
+            Student
+            {% elif user.role == 2 %}
+            Staff
+            {% elif user.role == 3 %}
+            Admin
+            {% elif user.role == 4 %}
+            Editor
+            {% endif %}
+        </li>
+    </ul>
+    {% block dashboard_content %}{% endblock %}
+</div>
+{% endblock %}
