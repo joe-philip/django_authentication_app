@@ -27,7 +27,7 @@ class UserSignupView(SuccessMessageMixin, CreateView):
 class LoginView(FormView):
     form_class = LoginForm
     template_name = 'login.html'
-    success_url = '/'
+    success_url = '/dashboard'
 
     def form_valid(self, form: LoginForm) -> HttpResponse:
         if user := authenticate(self.request, **form.cleaned_data):
