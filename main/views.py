@@ -40,4 +40,5 @@ class LoginView(FormView):
 class LogoutView(View):
     def get(self, request: HttpRequest) -> HttpResponse:
         logout(request)
+        messages.success(request, 'Logged out successfully')
         return redirect('/')
