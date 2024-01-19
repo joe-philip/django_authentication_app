@@ -5,6 +5,12 @@ from django import forms
 from .models import User
 
 
+def get_role_choices() -> list[tuple[int, str], tuple[int, str], tuple[int, str]]:
+    role_choices = User.RoleChoices.choices
+    role_choices.pop(2)
+    return role_choices
+
+
 class UserRegistrationForm(forms.ModelForm):
     password = forms.CharField(
         label='Password',
@@ -40,11 +46,12 @@ class UserRegistrationForm(forms.ModelForm):
         ),
         required=False
     )
+    role = forms.ChoiceField(choices=get_role_choices())
 
     class Meta:
         model = User
         fields = (
-            'full_name', 'mobile', 'email', 'country',
+            'full_name', 'mobile', 'email', 'country', 'role',
             'nationality', 'other_country', 'other_nationality'
         )
         widgets = {
