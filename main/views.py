@@ -57,6 +57,7 @@ class DashboardAPI(View):
 
 
 class LogoutView(View):
+    @method_decorator(login_required(login_url='/login'))
     def get(self, request: HttpRequest) -> HttpResponse:
         logout(request)
         messages.success(request, 'Logged out successfully')
