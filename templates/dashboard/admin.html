@@ -15,6 +15,8 @@
         <th>Email</th>
         <th>Mobile</th>
         <th>Role</th>
+        <th>Country</th>
+        <th>Nationality</th>
     </thead>
     <tbody>
         {% for user in queryset %}
@@ -31,6 +33,20 @@
                 Staff
                 {% elif user.role == 4 %}
                 Editor
+                {% endif %}
+            </td>
+            <td>
+                {% if user.country.id != 1 %}
+                {{user.country}}
+                {% else %}
+                {{user.other_country}}
+                {% endif %}
+            </td>
+            <td>
+                {% if user.nationality.id != 1 %}
+                {{user.nationality}}
+                {% else %}
+                {{user.other_nationality}}
                 {% endif %}
             </td>
         </tr>
