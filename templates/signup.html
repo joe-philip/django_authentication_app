@@ -51,8 +51,12 @@
         {{form.password.errors}}
         <span id="passwordError" class="error-message"></span>
         <label for="confirmPassword">Confirm Password:</label>
+        {% if form.password2.errors %}
+        {% for error in form.password2.errors %}
+        <span id="passwordError" class="error-message">{{error}}</span>
+        {% endfor %}
+        {% endif %}
         {{form.password2}}
-        {{form.password2.errors}}
         <span id="confirmPasswordError" class="error-message"></span>
         <input type="submit" value="Submit" />
     </form>
