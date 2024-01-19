@@ -62,6 +62,12 @@ class UserRegistrationForm(forms.ModelForm):
             'full_name': forms.TextInput(attrs={'id': 'fullName'})
         }
 
+    def clean_mobile(self):
+        mobile: str = self.cleaned_data.get('mobile', '')
+        if mobile.isdigit():
+            return mobile
+        raise forms.ValidationError('Invalid mobile number')
+
     def clean_password2(self):
         cd = self.cleaned_data
         if cd['password'] != cd['password2']:
